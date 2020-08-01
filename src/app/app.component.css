@@ -1,0 +1,54 @@
+/* .principalcolorfont >a {
+    color: rgb(31, 208, 79) !important;
+}
+
+.principalcolor {
+    background-color: rgb(31, 208, 79) !important;
+    color: white !important;
+}
+
+.nav-item>a{
+    color: rgb(53, 189, 71);
+  }
+  
+  
+.active{
+    
+    font-weight: 900;
+}
+    
+.nav-item>a:hover{
+    color: white;
+    background-color: rgba(31, 208, 78);
+    border-radius: 15px 15px 15px 15px;
+    border-bottom: none !important;
+}
+    .recortecarousel {
+    width: 100% !important;
+    height: 450px !important;
+    overflow: hidden !important;
+}
+
+.nav-bg {
+    background-color: rgba(31, 208, 78) !important;
+}
+
+.recortecarousel img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+.footer-fondo {
+    background-color: rgb(153, 153, 153);
+}
+
+.font-blanca {
+    color: snow;
+}
+
+.footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+} */
