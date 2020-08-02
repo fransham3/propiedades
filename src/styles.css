@@ -2,6 +2,10 @@
     color: rgb(31, 208, 79) !important;
 }
 
+.font-blanco {
+    color: seashell;
+}
+
 .principalcolor {
     background-color: rgb(31, 208, 79) !important;
     color: white !important;
@@ -19,18 +23,36 @@
     
 .nav-item>a:hover{
     color: white;
-    background-color: rgba(31, 208, 78);
+    background-color: rgb(37, 226, 88);
     border-radius: 15px 15px 15px 15px;
     border-bottom: none !important;
 }
-    .recortecarousel {
+.recortecarousel {
     width: 100% !important;
     height: 450px !important;
     overflow: hidden !important;
 }
 
 .nav-bg {
-    background-color: rgba(31, 208, 78, 0.918) !important;
+    background-color: rgb(3, 109, 31) !important;
+}
+
+.search-bg {
+    background-color: rgba(71, 71, 71, 0.918);
+    border-radius: 15px 15px 15px 15px;
+}
+
+.form-bg {
+    border: 1px outset #1cb135;
+    border-radius: 7px 7px 7px 7px;
+    padding: 5px;
+    box-shadow: 8px 8px 3px 0px rgba(0, 0, 0, 0.486);
+
+}
+
+.btn-search {
+    background-color: rgba(29, 29, 29, 0.952);
+    color: seashell;
 }
 
 .recortecarousel img {
