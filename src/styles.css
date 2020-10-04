@@ -1,31 +1,91 @@
-.principalcolorfont >a {
-    color: rgb(31, 208, 79) !important;
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
+.principalcolorfont >a {
+    color: rgb(23, 61, 33) !important;
+}
+
+/* FUENTES */
+/* color*/
 .font-blanco {
     color: seashell;
 }
-
-.principalcolor {
-    background-color: rgb(31, 208, 79) !important;
-    color: white !important;
+.font-rojo {
+    color: #ed4634;
+}
+.font-verde1 {
+    color: #336330f1;
+}
+.font-verde2 {
+    color: #1f585a;
+}
+.font-gris {
+    color: #9d9987;
 }
 
+/* FONDOS */
+.bg-rojo {
+    background-color: #ed4634;
+}
+.bg-verde1 {
+    background-color: #336330f1;
+}
+.bg-verde2 {
+    background-color: #1f585a;
+}
+.bg-gris {
+    background-color: #9d9987;
+}
+
+/* BORDES */
+/* color */
+.border-verde2 {
+    border-color:#1f585a!important;
+}
+
+/* BOTONES */
+.btn-verde2 {
+    background-color: #1f585a;
+    color: white;
+}
+.btn-verde2:hover {
+    background-color: #054749;
+    color: white;
+}
+
+
+
+.principalcolor {
+    background-color: #336330f1 !important;
+    color: #9d9987 !important;
+}
+
+
 .nav-item>a{
-    color: rgb(53, 189, 71);
+    color: #336330f1;
+    font-family: 'Roboto', sans-serif !important;
+    /* rgba(53, 189, 71, 0.808) */
+    border-bottom: 3px solid transparent !important;
   }
   
   
 .active{
-    
-    font-weight: 900;
+    color: #84b554 !important;
 }
     
 .nav-item>a:hover{
-    color: white;
-    background-color: rgb(37, 226, 88);
+    color: #ffffff;
+    border-bottom: 3px solid #ed4634 !important;
+
+    /* background-color:#28a745;
     border-radius: 15px 15px 15px 15px;
-    border-bottom: none !important;
+    border-bottom: none !important; */
 }
 .recortecarousel {
     width: 100% !important;
@@ -34,11 +94,12 @@
 }
 
 .nav-bg {
-    background-color: rgb(3, 109, 31) !important;
+    background-color: #336330f1 !important;
 }
 
 .search-bg {
-    background-color: rgba(71, 71, 71, 0.918);
+    background-color: #9d9987;
+    /* rgba(196, 196, 196, 0.918) */
     border-radius: 15px 15px 15px 15px;
 }
 
@@ -54,6 +115,10 @@
     background-color: rgba(29, 29, 29, 0.952);
     color: seashell;
 }
+.btn-search:hover {
+    background-color: rgba(19, 18, 18, 0.952);
+    color: seashell;
+}
 
 .recortecarousel img {
     width: 100% !important;
@@ -62,9 +127,7 @@
     object-position: center !important;
 }
 
-.footer-fondo {
-    background-color: rgb(153, 153, 153);
-}
+
 
 .font-blanca {
     color: snow;
