@@ -10,6 +10,9 @@ import { CPanelComponent } from './pages/c-panel/c-panel.component';
 import { IngresarPropComponent } from './pages/pages_c-panel/ingresar-prop/ingresar-prop.component';
 import { PagesComponent } from './pages/pages/pages.component';
 import { InicioSesionComponent } from './auth/inicio-sesion/inicio-sesion.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,11 @@ import { InicioSesionComponent } from './auth/inicio-sesion/inicio-sesion.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

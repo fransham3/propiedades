@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-c-panel',
   templateUrl: './c-panel.component.html',
   styleUrls: ['./c-panel.component.css']
 })
-export class CPanelComponent implements OnInit {
+export class CPanelComponent {
 
-  constructor() { }
+  constructor(private usuarioService: UsuarioService) { }
 
-  ngOnInit(): void {
+  logout() {
+    this.usuarioService.logout();
   }
 
 }

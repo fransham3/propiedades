@@ -1,6 +1,10 @@
 <div class="row container-fluid">
     <div class="col-lg-4 mx-auto mt-5">
-        <form action="" method="post">
+
+        <form   autocomplete="off"
+                [formGroup]="loginForm"
+                (ngSubmit)="login()"
+                id="loginform">
             <div class="card border-verde2 rounded-0">
                 <div class="card-header p-0">
                     <div class="text-white text-center py-2 bg-verde2">
@@ -15,17 +19,24 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fa fa-user "></i></div>
                             </div>
-                            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario" required>
+                            <input type="email" class="form-control" id="usuario" formControlName="email" placeholder="Correo electrónico">
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fa fa-lock"></i></div>
                             </div>
-                            <input type="password" class="form-control" id="pass" name="pass" placeholder="Contraseña" required>
+                            <input type="password" class="form-control" id="pass" formControlName="password" placeholder="Contraseña" required>
                         </div>
-                    </div>        
+                    </div> 
+                    
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="remember">
+                        <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+                    </div>
+
                     <div class="text-center">
                         <input type="submit" value="Entrar" class="btn btn-verde2 btn-block rounded-0 py-2">
                     </div>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './guard/auth.guard';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { PropiedadesComponent } from './pages/propiedades/propiedades.component';
@@ -21,7 +22,10 @@ const routes: Routes = [
   },
   { path: 'login', component: InicioSesionComponent,  pathMatch: 'full'},
 
-      { path: 'panel-administracion', component: CPanelComponent,  pathMatch: 'full'},
+  { path: 'panel-administracion', 
+  component: CPanelComponent,
+  canActivate: [AuthGuard],
+  pathMatch: 'full'},
 
   
   { path: '**', component: InicioComponent,  pathMatch: 'full'}
