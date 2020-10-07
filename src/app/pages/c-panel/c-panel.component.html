@@ -1,47 +1,58 @@
-<div class="row">
-    <div class="col-3 bg-panel">
-        <div class="text-center">
-            <img class="mt-2" src="../../../assets/img/logoCN.png" width="130">
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top nav-bg">
+  <a class="navbar-brand" routerLink="/panel-administracion">
+    <img src="../assets/img/logoCN.png" height="40" class="d-inline-block align-top" alt="" loading="lazy">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" routerLink="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Usuarios
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="#">Ingresar usuario</a>
+          <a class="dropdown-item" routerLink="#">Gestionar usuarios</a>
         </div>
-
-        
-        <div id="menu" class="my-5 px-2">
-            <ul>
-             <li><a routerLink="ingresar-propiedad" routerLinkActive="active">Ingresar propiedad</a></li>
-             
-             <li><a href="..." title="...">Gestionar propiedades</a></li>
-             <li><a href="..." title="...">Visitas</a></li>
-             <li><a href="..." title="...">Ir a correo electrónico</a></li>
-            </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Propiedades
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="/panel-administracion/ingresarp">Ingresar propiedad</a>
+          <a class="dropdown-item" routerLink="/panel-administracion/gestionarp">Gestionar propiedades</a>
         </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/inicio" routerLinkActive="active">Página web</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contacto" routerLinkActive="active">Correo electrónico</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contacto" routerLinkActive="active">Visitas</a>
+      </li>
+    </ul>
 
-        <div class="mt-4 pr-5 text-right">
-          <button type="button" class="btn btn-dark" (click)="logout()">CERRAR SESIÓN</button>
-            <!-- <a (click)="logout()" href="/login">CERRAR SESIÓN</a> -->
-        </div>
-        
+    <ul class="navbar-nav text-right mt-2 mt-lg-0">
+      <li class="nav-item">
+        <button type="button" class="btn btn-rojo" (click)="logout()">CERRAR SESIÓN</button>
+      </li>
+  </ul>
 
-       
+  </div>
+</nav>
 
-    <div class="m-colapsado">
-        <div class="fixed-top">
-            <div class="collapse" id="navbarToggleExternalContent">
-              <div class="bg-dark p-4">
-                <h5 class="text-white h4">Collapsed content</h5>
-                <span class="text-muted">Toggleable via the navbar brand.</span>
-              </div>
-            </div>
-            <nav class="navbar navbar-dark bg-dark">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-            </nav>
-          </div>
-    </div>
 
-    
-</div>
 
-<div class="col-9">
-  <router-outlet></router-outlet>
-</div>
+
+
+
+<router-outlet></router-outlet>
+
+
+

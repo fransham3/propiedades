@@ -7,12 +7,13 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { PropiedadesComponent } from './pages/propiedades/propiedades.component';
 import { CPanelComponent } from './pages/c-panel/c-panel.component';
-import { IngresarPropComponent } from './pages/pages_c-panel/ingresar-prop/ingresar-prop.component';
-import { PagesComponent } from './pages/pages/pages.component';
+import { IngresarPropComponent } from './pages/mantenimientos/propiedades/ingresar-prop/ingresar-prop.component';
+import { PagesComponent } from './pages/pages/pages.component'
 import { InicioSesionComponent } from './auth/inicio-sesion/inicio-sesion.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { GestionarPropComponent } from './pages/mantenimientos/propiedades/gestionar-prop/gestionar-prop.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     InicioSesionComponent,
     CPanelComponent,
     IngresarPropComponent,
-    PagesComponent
+    PagesComponent,
+    GestionarPropComponent
   ],
   imports: [
     BrowserModule,

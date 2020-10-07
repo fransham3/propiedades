@@ -1,49 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.bg-panel {
-    position: absolute;
+
+
+
+.nav-bg {
+    background-color: #336330 !important;
+}
+
+
+.dropdown-menu {
     background-color: #336330f1;
-    height: 100%;
-    display: block;
-}
-.m-colapsado {
-    display: none;
 }
 
-@media only screen and (max-width: 300px) {
-    .m-colapsado {
-        display:block;
-    }
-    .bg-panel{
-        display: none;
-    }
-    /* 1024 */
-  }
+.dropdown-menu>a {
+    color: #8cb29a !important;
+    border-bottom: 3px solid transparent !important;
 
-
-  #menu ul {
-    list-style-type: none;
-    /* margin: 0px;
-    padding: 0px; */
-    width: 100%;
-  }
-
-#menu ul li {
-    /* background-color: #666;*/
-} 
-
-#menu ul li a {
-    color: #ccc;
-    text-decoration: none;
-    text-transform: uppercase;
-    display: block;
-    padding: 10px 10px 10px 20px;
-    border-left: 6px solid transparent;
-    font-family: 'Roboto', sans-serif;
 }
 
-#menu ul li a:hover {
-    border-left: 6px solid #ed4634;
-    color: #85b455;
+.dropdown-menu>a:hover{
+    background-color: transparent !important;
+    color: white !important;
+    border-bottom: 3px solid #ed4634 !important;
 }
 

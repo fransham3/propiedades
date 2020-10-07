@@ -60,6 +60,16 @@
 }
 
 
+.btn-rojo {
+    background-color: #ed4634;
+    color: white;
+}
+.btn-rojo:hover {
+    background-color: #9b2f23;
+    color: white;
+}
+
+
 
 .principalcolor {
     background-color: #336330f1 !important;
