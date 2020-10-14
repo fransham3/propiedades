@@ -6,32 +6,45 @@
 
       <h2 class="mb-5 font-rojo text-center"><i class="fas fa-home"></i> Ingresar Propiedad</h2>
        
-          <form>
+          <form [formGroup]="editarPropForm"
+                (submit)="actualizarPropiedad()">
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Título</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="" placeholder="Ingrese el título de la propiedad">
+                <input  type="text" 
+                        class="form-control" 
+                        placeholder="Ingrese el título de la propiedad"
+                        formControlName="titulo"
+                >
               </div>
             </div>
 
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Descripción corta</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="" placeholder="Ingrese una descripción corta">
+                <input  type="text" 
+                        class="form-control" 
+                        placeholder="Ingrese una descripción corta"
+                        formControlName="desc_corta"
+                >
               </div>
             </div>
             
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Precio</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="" placeholder="Ingrese precio sin puntos">
+                <input  type="text" 
+                        class="form-control" 
+                        placeholder="Ingrese precio sin puntos"
+                        formControlName="precio"
+                >
               </div>
             </div>
           
             <div class="form-group row">
               <label class="col-sm-3 col-form-label" for="exampleFormControlSelect1">Tipo de propiedad</label>
               <div class="col-sm-9">
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" id="exampleFormControlSelect1" formControlName="tipo_prop">
                   <option>Casa</option>
                   <option>Departamento</option>
                   <option>Terreno</option>
@@ -44,7 +57,7 @@
             <div class="form-group row">
               <label class="col-sm-3 col-form-label" for="exampleFormControlSelect1">Tipo de operación</label>
               <div class="col-sm-9">
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" id="exampleFormControlSelect1" formControlName="tipo_oper">
                     <option>Venta</option>
                     <option>Arriendo</option>
                   </select>
@@ -82,7 +95,12 @@
             <div class="form-group row">
               <label class="col-sm-3 col-form-label" for="exampleFormControlTextarea1">Descripción</label>
               <div class="col-sm-9">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea   class="form-control" 
+                            id="exampleFormControlTextarea1" 
+                            rows="3"
+                            formControlName="descripcion"
+                >
+                </textarea>
               </div>
             </div>
           
@@ -98,7 +116,7 @@
               <span class="col-sm-2"> </span>
               <button type="submit" class="col-sm-3 btn btn-verde2 mt-4">Limpiar formulario</button>
               <span class="col-sm-2"> </span>
-              <button type="submit" class="col-sm-3 btn btn-verde2 mt-4">Ingresar propiedad</button>
+              <button type="submit" class="col-sm-3 btn btn-verde2 mt-4">Guardar propiedad</button>
               <span class="col-sm-2"> </span>
           </div>
 

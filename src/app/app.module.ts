@@ -14,6 +14,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GestionarPropComponent } from './pages/mantenimientos/propiedades/gestionar-prop/gestionar-prop.component';
+import { RouterModule } from '@angular/router';
+import { EditarPropComponent } from './mantenimientos/editar-prop/editar-prop.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { GestionarPropComponent } from './pages/mantenimientos/propiedades/gesti
     CPanelComponent,
     IngresarPropComponent,
     PagesComponent,
-    GestionarPropComponent
+    GestionarPropComponent,
+    EditarPropComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { GestionarPropComponent } from './pages/mantenimientos/propiedades/gesti
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

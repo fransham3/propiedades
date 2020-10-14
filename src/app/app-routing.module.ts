@@ -18,6 +18,7 @@ const routes: Routes = [
       { path: 'inicio', component: InicioComponent,  pathMatch: 'full'},
       { path: 'contacto', component: ContactoComponent,  pathMatch: 'full'},
       { path: 'propiedades', component: PropiedadesComponent,  pathMatch: 'full'},
+      { path: 'propiedades/:termino', component: PropiedadesComponent,  pathMatch: 'full'},
       { path: '', redirectTo: '/inicio', pathMatch: 'full'}
     ]
   },
