@@ -8,6 +8,10 @@ export interface CargarPropiedad {
     docs: Propiedad[];
 }
 
+export interface CrearPropiedad {
+    propiedad: Propiedad;
+}
+
 
 export interface CargarModal {
     propID: string;

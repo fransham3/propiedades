@@ -1,37 +1,50 @@
 <!-- TODO: Boton limpiar -->
 
 
-<div class="row">
+<div class="row container-fluid">
     <div class="col-lg-7 mx-auto my-4">
 
       <h2 class="mb-5 font-rojo text-center"><i class="fas fa-home"></i> Ingresar Propiedad</h2>
        
-          <form>
+         <div class="formularioIngresar">
+          <form [formGroup]="crearPropForm">
+
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Título</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="" placeholder="Ingrese el título de la propiedad">
+                <input  type="text" 
+                        class="form-control" 
+                        placeholder="Ingrese el título de la propiedad"
+                        [(ngModel)]="titulo" formControlName="titulo">
               </div>
             </div>
 
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Descripción corta</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="" placeholder="Ingrese una descripción corta">
+                <input  type="text" 
+                        class="form-control"
+                        placeholder="Ingrese una descripción corta"
+                        [(ngModel)]="desc_corta" formControlName="desc_corta">
               </div>
             </div>
             
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Precio</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="" placeholder="Ingrese precio sin puntos">
+                <input  type="text" 
+                        class="form-control" 
+                        placeholder="Ingrese precio sin puntos"
+                        [(ngModel)]="precio" formControlName="precio">
               </div>
             </div>
           
             <div class="form-group row">
               <label class="col-sm-3 col-form-label" for="exampleFormControlSelect1">Tipo de propiedad</label>
               <div class="col-sm-9">
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" 
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="tipo_prop" formControlName="tipo_prop">
                   <option>Casa</option>
                   <option>Departamento</option>
                   <option>Terreno</option>
@@ -44,17 +57,23 @@
             <div class="form-group row">
               <label class="col-sm-3 col-form-label" for="exampleFormControlSelect1">Tipo de operación</label>
               <div class="col-sm-9">
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" 
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="tipo_oper" formControlName="tipo_oper">
                     <option>Venta</option>
                     <option>Arriendo</option>
                   </select>
               </div>
             </div>
 
-            <div class="form-group row">
+             <!--<div class="form-group row">
               <label class="col-sm-3 col-form-label">Región</label>
               <div class="col-sm-9">
-                <select class="form-control" [(ngModel)]="selectRegion" name="selectRegion" (change)="llenadoProvincias()">
+                <select class="form-control" 
+                        [(ngModel)]="region"
+                        formControlName="region"
+                        name="region" 
+                        (change)="llenadoProvincias()">
                     <option *ngFor="let region of regiones" [value]="region._id"> {{ region.nombre }} </option>
                   </select>
               </div>
@@ -63,7 +82,11 @@
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Provincia</label>
               <div class="col-sm-9">
-                <select class="form-control" [(ngModel)]="selectProvincia" name="selectProvincia" (change)="llenadoComunas()">
+                <select class="form-control" 
+                        [(ngModel)]="selectProvincia"
+                        formControlName="region"
+                        name="selectProvincia" 
+                        (change)="llenadoComunas()">
                     <option *ngFor="let provincia of provincias" [value]="provincia._id"> {{ provincia.nombre }} </option>
                   </select>
 
@@ -82,26 +105,29 @@
             <div class="form-group row">
               <label class="col-sm-3 col-form-label" for="exampleFormControlTextarea1">Descripción</label>
               <div class="col-sm-9">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" 
+                          id="exampleFormControlTextarea1" 
+                          rows="3"
+                          [(ngModel)]="descripcion" formControlName="descripcion"
+                ></textarea>
               </div>
-            </div>
+            </div>-->         
+        
+
           
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="exampleFormControlFile1">Seleccione imágenes</label>
-            <div class="col-sm-9">
-              <input type="file" class="form-control-file" id="exampleFormControlFile1">
-            </div>
-          </div>
           
       
           <div class="form-group row ">
               <span class="col-sm-2"> </span>
-              <button type="submit" class="col-sm-3 btn btn-verde2 mt-4">Limpiar formulario</button>
+              <button type="submit" class="col-sm-3 btn btn-verde2 mt-4" (click)="reset()">Limpiar formulario</button>
               <span class="col-sm-2"> </span>
-              <button type="submit" class="col-sm-3 btn btn-verde2 mt-4">Ingresar propiedad</button>
+              <button type="submit" class="col-sm-3 btn btn-verde2 mt-4" (click)="guardarPropiedad(propiedad)">Ingresar propiedad</button>
               <span class="col-sm-2"> </span>
           </div>
 
-        </form>
+          </form>
+         </div>
+
+
     </div>
 </div>

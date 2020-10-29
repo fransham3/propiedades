@@ -16,12 +16,12 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Título</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">T. Operación</th>
+            <th scope="col">T. Propiedad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Comuna</th>
+            <th scope="col">Descripción Corta</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -35,8 +35,18 @@
             <td>{{ propiedad.desc_corta }}</td>
             <td>
               <div class="row">
-                <a class="col-6 text-center" href=""><i class="far fa-edit font-verde1"></i></a>
-                <a class="col-6 text-center" (click)="elPropiedad(propiedad)" style="cursor: pointer;" ><i class="far fa-trash-alt font-rojo"></i></a>
+                <a  class="col-4 text-center pointer"
+                    (click)="btnActualizar(propiedad)" 
+                    data-toggle="modal" 
+                    data-target="#exampleModal"> <i class="far fa-edit font-verde1"
+                    title="Editar Propiedad"></i>
+                    
+                </a>
+
+                <a class="col-4 text-center pointer" title="Editar Imágenes" (click)="editarImg(propiedad._id, propiedad.titulo)">
+                  <i class="far fa-images"></i>
+                </a>
+                <a class="col-4 text-center pointer" title="Eliminar Propiedad" (click)="elPropiedad(propiedad)"><i class="far fa-trash-alt font-rojo"></i></a>
               </div>
               
 
@@ -56,6 +66,154 @@
       </div>
           
     </div>
+</div>
+
+
+ <!-- Modal -->
+ <div *ngFor="let propsModal of propiedades" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> <span class="font-verde2"></span></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div class="modal-body">
+              
+        <div class="row">
+          <div class="col-lg-12 mx-auto my-4">
+      
+            <h2 class="mb-5 font-rojo text-center"> <i class="far fa-edit"></i> Editar Propiedad </h2>
+             
+                <form [formGroup]="editarPropForm"
+                      (submit)="actualizarPropiedad(propID, prop)">
+                      
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Título</label>
+                    <div class="col-sm-9">
+                      <input  type="text" 
+                              class="form-control" 
+                              placeholder="Ingrese el título de la propiedad"
+                              [(ngModel)]="titulo" formControlName="titulo"
+                      >
+                    </div>
+                  </div>
+      
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Descripción corta</label>
+                    <div class="col-sm-9">
+                      <input  type="text" 
+                              class="form-control" 
+                              placeholder="Ingrese una descripción corta"
+                              [(ngModel)]="desc_corta" formControlName="desc_corta"
+                      >
+                    </div>
+                  </div>
+                  
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Precio</label>
+                    <div class="col-sm-9">
+                      <input  type="number" 
+                              class="form-control" 
+                              placeholder="Ingrese precio sin puntos"
+                              [(ngModel)]="precio" formControlName="precio"
+                      >
+                    </div>
+                  </div>
+                
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label" for="exampleFormControlSelect1">Tipo de propiedad</label>
+                    <div class="col-sm-9">
+                      <select class="form-control" 
+                              id="exampleFormControlSelect1" 
+                              [(ngModel)]="tipo_prop" formControlName="tipo_prop"
+                              >
+                        <option>Casa</option>
+                        <option>Departamento</option>
+                        <option>Terreno</option>
+                        <option>Parcela</option>
+                        <option>Local</option>
+                      </select>
+                    </div>
+                  </div>
+      
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label" for="exampleFormControlSelect1">Tipo de operación</label>
+                    <div class="col-sm-9">
+                      <select class="form-control" 
+                              id="exampleFormControlSelect1"
+                              [(ngModel)]="tipo_oper" formControlName="tipo_oper"
+                              >
+                          <option>Venta</option>
+                          <option>Arriendo</option>
+                        </select>
+                    </div>
+                  </div>
+      
+                  <!-- <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Región</label>
+                    <div class="col-sm-9">
+                      <select class="form-control" [(ngModel)]="selectRegion" name="selectRegion" (change)="llenadoProvincias()">
+                          <option *ngFor="let region of regiones" [value]="region._id"> {{ region.nombre }} </option>
+                        </select>
+                    </div>
+                  </div>
+      
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Provincia</label>
+                    <div class="col-sm-9">
+                      <select class="form-control" [(ngModel)]="selectProvincia" name="selectProvincia" (change)="llenadoComunas()">
+                          <option *ngFor="let provincia of provincias" [value]="provincia._id"> {{ provincia.nombre }} </option>
+                        </select>
+      
+                    </div>
+                  </div>
+      
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Comuna</label>
+                    <div class="col-sm-9">
+                      <select class="form-control" [(ngModel)]="selectComuna" name="selectComuna">
+                          <option *ngFor="let comuna of comunas" [value]="comuna._id"> {{ comuna.nombre }} </option>
+                        </select>
+                    </div>
+                  </div> -->
+      
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label" for="exampleFormControlTextarea1">Descripción</label>
+                    <div class="col-sm-9">
+                      <textarea   class="form-control" 
+                                  id="exampleFormControlTextarea1" 
+                                  rows="3"
+                                  [(ngModel)]="descripcion" formControlName="descripcion"
+                      >
+                      </textarea>
+                    </div>
+                  </div>
+                
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label" for="exampleFormControlFile1">Seleccione imágenes</label>
+                  <div class="col-sm-9">
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                  </div>
+                </div>
+                
+            
+                <div class="form-group row ">
+                    <button type="submit" class="col-sm-3 mx-auto btn btn-verde2 mt-4" [disabled]="editarPropForm.invalid">Guardar propiedad</button>
+                </div>
+      
+              </form>
+          </div>
+      </div>
+             
+
+      </div>
+      <div class="modal-footer">
+        <button (click)="cargarPropiedades()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 

@@ -4,6 +4,7 @@ import { LoginForm } from '../interfaces/login-form.interface';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { Usuario } from '../pages/models/usuario.model';
 
 const base_url = 'http://localhost:3000/api';
 
@@ -12,6 +13,8 @@ const base_url = 'http://localhost:3000/api';
   providedIn: 'root'
 })
 export class UsuarioService {
+
+  public usuario: Usuario;
 
   constructor(private http: HttpClient,
               private router: Router) { }

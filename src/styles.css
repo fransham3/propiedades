@@ -11,6 +11,10 @@
     color: rgb(23, 61, 33) !important;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 /* FUENTES */
 /* color*/
 .font-blanco {
@@ -27,6 +31,9 @@
 }
 .font-gris {
     color: #9d9987;
+}
+.uppercase {
+        text-transform: uppercase;
 }
 
 /* FONDOS */

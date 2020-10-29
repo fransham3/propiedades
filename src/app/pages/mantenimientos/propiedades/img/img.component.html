@@ -1,0 +1,87 @@
+<!-- TODO: Boton limpiar -->
+
+
+<div class="row container-fluid">
+    <div class="col-lg-7 mx-auto my-4">
+
+      <h2 class="mb-5 font-rojo text-center"><i class="far fa-images"></i> Ingresar Imágenes</h2>
+      <h4 *ngIf="titulo" class="mb-5 font-verde1 text-center"> Propiedad <span class="font-weight-bold uppercase">{{ titulo }}</span></h4>
+       
+         <div class="CargarImagenes">
+          <form [formGroup]="subirImgForm">
+
+            
+            <div class="form-group row d-flex align-items-center">
+                <label class="col-sm-3 col-form-label " for="exampleFormControlFile1">Seleccione imágenes</label>
+                <input type="file" class="form-control-file col-sm-6" name="image" formControlName="image" (change)="cambiarImagen($event.target.files[0])">
+                        
+            </div>
+
+            <div class="row justify-content-end">
+              <button type="submit" 
+                        class="btn btn-verde2 mt-3 col-sm-3 pointer" 
+                        (click)="subirImagen()"
+                        [disabled]="!imagenSubir">
+                    Subir imagen
+                </button>     
+            </div>
+
+  
+            <div class="form-group row p-4">
+                <table class="table col-10 mx-auto">
+                    <tbody>
+                        <tr *ngFor="let imagen of imagenes" class="text-center">
+                        <td><img    src={{imagen.imageURL}} 
+                                    class="img-thumbnail align-middle pointer" 
+                                    style="width: 100px;"
+                                    data-toggle="modal" 
+                                    data-target="#exampleModal"
+                                    > 
+                        </td>
+                        <td class="align-middle">
+                            {{ imagen._id }}
+
+                            <a  class="col-6 text-center"
+                                style="cursor: pointer;" 
+                                (click)="elImg(imagen._id)">
+                            <i class="far fa-trash-alt font-rojo"></i>
+                            </a>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          
+         
+
+          </form>
+         </div>
+
+
+    </div>
+</div>
+
+
+ <!-- Modal -->
+ <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+                
+          <div class="row mx-auto">
+            <div class="col-lg-12 my-4">
+
+            <img src={{fotos.imageURL}} class=" h-100">
+             
+            </div>
+        </div>
+               
+  
+        </div>
+        <div class="modal-footer">
+          <button  type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> -->

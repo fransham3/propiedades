@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-7 mx-auto my-4">
 
-      <h2 class="mb-5 font-rojo text-center"><i class="fas fa-home"></i> Ingresar Propiedad</h2>
+      <h2 class="mb-5 font-rojo text-center"><i class="far fa-edit"></i> Editar Propiedad</h2>
        
           <form [formGroup]="editarPropForm"
                 (submit)="actualizarPropiedad()">
@@ -33,7 +33,7 @@
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Precio</label>
               <div class="col-sm-9">
-                <input  type="text" 
+                <input  type="number" 
                         class="form-control" 
                         placeholder="Ingrese precio sin puntos"
                         formControlName="precio"
@@ -64,7 +64,7 @@
               </div>
             </div>
 
-            <div class="form-group row">
+            <!-- <div class="form-group row">
               <label class="col-sm-3 col-form-label">Región</label>
               <div class="col-sm-9">
                 <select class="form-control" [(ngModel)]="selectRegion" name="selectRegion" (change)="llenadoProvincias()">
@@ -90,7 +90,7 @@
                     <option *ngFor="let comuna of comunas" [value]="comuna._id"> {{ comuna.nombre }} </option>
                   </select>
               </div>
-            </div>
+            </div> -->
 
             <div class="form-group row">
               <label class="col-sm-3 col-form-label" for="exampleFormControlTextarea1">Descripción</label>
@@ -116,7 +116,7 @@
               <span class="col-sm-2"> </span>
               <button type="submit" class="col-sm-3 btn btn-verde2 mt-4">Limpiar formulario</button>
               <span class="col-sm-2"> </span>
-              <button type="submit" class="col-sm-3 btn btn-verde2 mt-4">Guardar propiedad</button>
+              <button type="submit" class="col-sm-3 btn btn-verde2 mt-4" [disabled]="editarPropForm.invalid">Guardar propiedad</button>
               <span class="col-sm-2"> </span>
           </div>
 

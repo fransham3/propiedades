@@ -14,7 +14,7 @@ export class Propiedad {
         public _id?: string,
         public usuario?: _propiedadUser,
         public tipo_prop?: string,
-        public region?: string,
+        // public region?: string,
         public provincia?: string,
         public comuna?: string,
         public descripcion?: string,

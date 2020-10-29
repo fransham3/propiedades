@@ -1,37 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { Component, OnInit } from '@angular/core';
+// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { Propiedad } from 'src/app/models/propiedad.model';
+// import { PropiedadService } from 'src/app/services/propiedad.service';
 
-@Component({
-  selector: 'app-editar-prop',
-  templateUrl: './editar-prop.component.html',
-  styles: [
-  ]
-})
-export class EditarPropComponent implements OnInit {
+// @Component({
+//   selector: 'app-editar-prop',
+//   templateUrl: './editar-prop.component.html',
+//   styles: [
+//   ]
+// })
+// export class EditarPropComponent implements OnInit {
 
-  public editarPropForm: FormGroup;
+//   public editarPropForm: FormGroup;
 
-  constructor( private fb: FormBuilder) { }
+//   constructor(  private fb: FormBuilder,
+//                 private propiedadService: PropiedadService) { }
 
-  ngOnInit(): void {
+//   ngOnInit(): void {
 
-    this.editarPropForm = this.fb.group({
-      titulo: ['', Validators.required],
-      desc_corta: ['', Validators.required],
-      precio: ['', Validators.required],
-      tipo_prop: ['', Validators.required],
-      tipo_oper: ['', Validators.required],
-      region: [''],
-      provincia: [''],
-      comuna: [''],
-      descripcion: [''],
+//     this.editarPropForm = this.fb.group({
+//       titulo: ['potoconcaca', Validators.required],
+//       desc_corta: ['', Validators.required],
+//       precio: ['', Validators.required],
+//       tipo_prop: ['', Validators.required],
+//       tipo_oper: ['', Validators.required],
       
-    })
-  }
+//       descripcion: [''],
+      
+//     })
+//   }
 
-  actualizarPropiedad() {
-    console.log(this.editarPropForm.value);
-    
-  }
+//   actualizarPropiedad(propiedad: Propiedad) {
+//     console.log(this.editarPropForm.value);
+//     this.propiedadService.actualizarPropiedad(propiedad, this.editarPropForm.value)
+//         .subscribe(resp => {
+//           console.log(resp);
+          
+//         })
+//   }
 
-}
+// }

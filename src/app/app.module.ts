@@ -15,7 +15,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GestionarPropComponent } from './pages/mantenimientos/propiedades/gestionar-prop/gestionar-prop.component';
 import { RouterModule } from '@angular/router';
-import { EditarPropComponent } from './mantenimientos/editar-prop/editar-prop.component';
+import { ImgComponent } from './pages/mantenimientos/propiedades/img/img.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { EditarPropComponent } from './pages/mantenimientos/propiedades/editar-prop/editar-prop.component';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { EditarPropComponent } from './mantenimientos/editar-prop/editar-prop.co
     IngresarPropComponent,
     PagesComponent,
     GestionarPropComponent,
-    EditarPropComponent
+    ImgComponent,
+    // EditarPropComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,10 @@ import { EditarPropComponent } from './mantenimientos/editar-prop/editar-prop.co
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    NgbModule,
+    NgbPaginationModule, 
+    NgbAlertModule
   ],
   providers: [],
   bootstrap: [AppComponent]

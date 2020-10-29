@@ -9,6 +9,8 @@ import { CPanelComponent } from './pages/c-panel/c-panel.component';
 import { IngresarPropComponent } from './pages/mantenimientos/propiedades/ingresar-prop/ingresar-prop.component';
 import { PagesComponent } from './pages/pages/pages.component';
 import { GestionarPropComponent } from './pages/mantenimientos/propiedades/gestionar-prop/gestionar-prop.component';
+import { ImgComponent } from './pages/mantenimientos/propiedades/img/img.component';
+// import { EditarPropComponent } from './pages/mantenimientos/propiedades/editar-prop/editar-prop.component';
 
 
 const routes: Routes = [
@@ -31,6 +33,8 @@ const routes: Routes = [
     children: [
       { path: 'ingresarp', component: IngresarPropComponent,  pathMatch: 'full'},
       { path: 'gestionarp', component: GestionarPropComponent,  pathMatch: 'full'},
+      { path: 'img-prop', component: ImgComponent,  pathMatch: 'full'},
+      // { path: 'editarp', component: EditarPropComponent,  pathMatch: 'full'},
     ]
   },
 
