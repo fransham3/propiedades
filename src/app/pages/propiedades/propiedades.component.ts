@@ -24,6 +24,7 @@ export class PropiedadesComponent implements OnInit {
   public idProp: string;
   public portada: string;
   public imagenes: Img;
+  public element: string;
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
@@ -32,7 +33,7 @@ export class PropiedadesComponent implements OnInit {
               private imagenService: ImagenService) { }
 
   ngOnInit(): void {
-    this.cargarImagenes();
+    // this.cargarImagenes();
     
     this.activatedRoute.params
     .subscribe( ({ termino }) => {
@@ -43,6 +44,8 @@ export class PropiedadesComponent implements OnInit {
   }
   
   busquedaGlobal(termino: string) {
+    
+
     this.busquedasService.busquedaGlobal(termino, this.page)
     .subscribe((resp: any) => {
       console.log(resp);
@@ -52,12 +55,21 @@ export class PropiedadesComponent implements OnInit {
       this.totalPropiedades = resp.result.totalDocs;
       this.totalPaginas = resp.result.totalPages;
       this.idProp = resp.result.docs._id;
-      // console.log(resp.result.docs[0]._id);
+
+      console.log(this.totalPropiedades);
+
+      for (let n = 0; n < resp.result.docs.length; n++) {
+        const element = resp.result.docs[n]._id;
+        
+        console.log(element);
+        this.imagenService.obtenerID(element);
+        this.cargarPortadas();
+      }
+      
       
       
     });
-    this.imagenService.obtenerID(propID);
-    this.cargarImagenesByPropiedad();
+    
     
     
   }
@@ -130,7 +142,11 @@ export class PropiedadesComponent implements OnInit {
   }
 
   cargarPortadas() {
-
+    this.imagenService.cargarPortadas()
+      .subscribe(resp => {
+        console.log(resp);
+        this.imagenes = resp.fotos;
+      });
   }
   
 }

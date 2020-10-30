@@ -48,6 +48,11 @@ export class ImagenService {
   
   }
 
+  cargarPortadas() {
+    const url = `${base_url}/upload/portada/${this.idProp}`;
+    return this.http.get<cargarImagenes>(url);
+  }
+
   
   cargarImagenesById(id: string) {
 

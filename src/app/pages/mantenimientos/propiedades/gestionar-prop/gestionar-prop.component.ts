@@ -27,7 +27,7 @@ export class GestionarPropComponent implements OnInit {
     
     public titulo: string;
     public desc_corta: string;
-    public precio: string;
+    public precio: number;
     public tipo_prop: string;
     public tipo_oper: string;
     public descripcion: string;
@@ -54,11 +54,11 @@ export class GestionarPropComponent implements OnInit {
       });
 
       this.editarPropForm = this.fb.group({
-        titulo: [this.prop.titulo, [Validators.required]],
-        desc_corta: [this.propiedad.desc_corta, [Validators.required]],
-        precio: [this.propiedad.precio, [Validators.required]],
-        tipo_prop: [this.propiedad.tipo_prop, [Validators.required]],
-        tipo_oper: [this.propiedad.tipo_oper, [Validators.required]],
+        titulo: [this.titulo, [Validators.required]],
+        desc_corta: [this.desc_corta, [Validators.required]],
+        precio: [this.precio, [Validators.required]],
+        tipo_prop: [this.tipo_prop, [Validators.required]],
+        tipo_oper: [this.tipo_oper, [Validators.required]],
         
         descripcion: [''],
         
@@ -75,13 +75,14 @@ export class GestionarPropComponent implements OnInit {
   cargarPropiedades() {
     this.propiedadService.cargarPropiedades(this.page)
         .subscribe( resp => {
-          //  console.log(resp.result);
+           console.log(resp.result);
           this.totalPropiedades = resp.result.totalDocs;
           this.totalPaginas = resp.result.totalPages;
           this.propiedades = resp.result.docs;
           this.page = resp.result.page;
           
-        })
+          
+        });
     
   }
 
@@ -103,11 +104,20 @@ export class GestionarPropComponent implements OnInit {
 
   btnActualizar(propiedad: Propiedad) {
     this.propID = propiedad._id;
-    console.log(this.propID);
+    // console.log(this.propID);
     this.prop = propiedad;
+    this.titulo = propiedad.titulo;
+    this.desc_corta = propiedad.desc_corta;
+    this.precio = propiedad.precio;
+    this.tipo_prop = propiedad.tipo_prop;
+    this.tipo_oper = propiedad.tipo_oper;
+    this.descripcion = propiedad.descripcion;
     
     // this.actualizarPropiedad(this.propID);
     
+
+
+
   }
   
   actualizarPropiedad(propID: string, prop) {
