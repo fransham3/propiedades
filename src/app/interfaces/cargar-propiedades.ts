@@ -8,9 +8,17 @@ export interface CargarPropiedad {
     docs: Propiedad[];
 }
 
-export interface CrearPropiedad {
+export interface cPropiedad {
+    recientesProps: Propiedad;
     propiedad: Propiedad;
 }
+
+export interface actualizarImg {
+    img: string;
+    propiedad_id: string;
+}
+
+
 
 
 export interface CargarModal {

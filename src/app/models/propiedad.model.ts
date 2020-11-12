@@ -10,6 +10,7 @@ export class Propiedad {
         public tipo_oper: string,
         public precio: number,
         public desc_corta: string,
+        public img: string,
         public created_at?: Date,
         public _id?: string,
         public usuario?: _propiedadUser,
@@ -17,7 +18,6 @@ export class Propiedad {
         // public region?: string,
         public provincia?: string,
         public comuna?: string,
-        public descripcion?: string,
-        public img?: string
+        public descripcion?: string
         ) {}
     }

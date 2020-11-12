@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Img } from 'src/app/models/img.model';
 import { Propiedad } from 'src/app/models/propiedad.model';
 import { BusquedasService } from 'src/app/services/busquedas.service';
 import { ImagenService } from 'src/app/services/imagen.service';
 import { PropiedadService } from 'src/app/services/propiedad.service';
+import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
+
+const base_url = environment.base_url;
 
 
 
@@ -16,6 +21,8 @@ import { PropiedadService } from 'src/app/services/propiedad.service';
 export class PropiedadesComponent implements OnInit {
 
 
+  public sendEmailForm: FormGroup;
+  public propID: string;
   public propiedades: Propiedad[] = [];
   public termino: string;
   public page: number = 1;
@@ -25,6 +32,14 @@ export class PropiedadesComponent implements OnInit {
   public portada: string;
   public imagenes: Img;
   public element: string;
+  public img: string;
+
+  public nombre: string;
+  public email: string;
+  public telefono: string;
+  public tipoConsulta: string;
+  public comentario: string;
+  public linkPropiedades: string;
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
@@ -34,6 +49,14 @@ export class PropiedadesComponent implements OnInit {
 
   ngOnInit(): void {
     // this.cargarImagenes();
+
+    this.sendEmailForm = new FormGroup({
+      nombre: new FormControl(),
+      email: new FormControl(),
+      telefono: new FormControl(),
+      tipoConsulta: new FormControl(),
+      comentario: new FormControl()
+     });
     
     this.activatedRoute.params
     .subscribe( ({ termino }) => {
@@ -55,6 +78,7 @@ export class PropiedadesComponent implements OnInit {
       this.totalPropiedades = resp.result.totalDocs;
       this.totalPaginas = resp.result.totalPages;
       this.idProp = resp.result.docs._id;
+      this.img = resp.result.docs.img;
 
       console.log(this.totalPropiedades);
 
@@ -147,6 +171,29 @@ export class PropiedadesComponent implements OnInit {
         console.log(resp);
         this.imagenes = resp.fotos;
       });
+  }
+
+  sendEmail(propID: string, propTITULO: string) {
+
+    console.log(propID, propTITULO);
+
+    console.log(this.sendEmailForm.value);
+
+  
+    this.linkPropiedades = `${base_url}/propiedades/modal/${propID}`;
+
+    this.propiedadService.sendEmail(this.sendEmailForm.value, propTITULO, this.linkPropiedades)
+        .subscribe(resp => {
+          
+          Swal.fire(
+            'Enviado!',
+            `Hemos recibido tu mensaje, te contactaremos a la brevedad.`,
+            'success'
+          )
+          this.sendEmailForm.reset();
+        });
+    
+
   }
   
 }

@@ -129,7 +129,7 @@ export class GestionarPropComponent implements OnInit {
     console.log(this.editarPropForm.value);
     this.propiedadService.actualizarPropiedad(propID, this.editarPropForm.value)
         .subscribe(resp => {
-          console.log(resp);
+          // console.log(resp);
           Swal.fire(
             'Editado!',
             `Se ha editado la propiedad satisfactoriamente`,

@@ -22,6 +22,7 @@
     </div>
   </div>
   
+  
   <!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -44,57 +45,59 @@
     </a>
   </div> -->
   
-  <section id="fafa" class="container mt-5">
-    <h3 class="mb-4">Nuevas publicaciones</h3>
-    <div class="row row-cols-1 row-cols-md-3">
-      <div class="col mb-4">
-        <div class="card">
+  <div id="fafa" class="container-fluid mt-5">
+    <h3 class="mb-4">Publicaciones recientes</h3>
+    <!-- <div class="row">
+      
+        <div *ngFor="let propiedad of propiedades" class="card col-md-4 p-1 m-1">
           <img src="../assets/img/card.jpg" class="card-img-top" alt="...">
+          <h5 class="card-title principalcolorfont"><span class="font-verde2">{{ propiedad.titulo }}</span></h5>
           <div class="card-body">
-            <h5 class="card-title principalcolorfont">Título propiedad</h5>
-            <p class="card-text font-italic">Comuna lugar</p>
-            <p class="card-text ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu massa blandit nisi pretium lobortis. Nulla elementum purus ut ligula dapibus, tempor sagittis lorem tempus. Cras faucibus tortor ac eleifend mollis. Aliquam erat volutpat. Nullam risus ante, suscipit ut sapien a, fermentum hendrerit mi.</p>
-            <p class="text-right">$ 999.999</p>
+            <h5 class="card-title principalcolorfont">{{ propiedad.desc_corta }}</h5>
+            <p class="card-text font-italic">{{ propiedad.comuna }}</p>
+            <p class="card-text "> {{ propiedad.descripcion }}</p>
+            <p class="text-right">$ {{ propiedad.precio}}</p>
+          </div>
+        </div>
+
+    </div> -->
+
+    <div class="row row-cols-1 row-cols-md-3 animated fadeIn fast">
+    
+      <div class="col mb-4" *ngFor="let propiedad of propiedades;" >
+        <div class="card">
+
+          <div class="card-header">
+            <h5 class="card-title principalcolorfont font-verde2 uppercase">{{ propiedad.titulo }}</h5>
+          </div>
+
+            <img src= class="card-img-top"> 
+
+          <div class="card-body">
+            <p class="card-text h5 font-verde1">{{ propiedad.desc_corta }}</p>
+            <p class="card-text font-italic">{{ propiedad.comuna }}</p>
+            <p class="card-text "> {{ propiedad.descripcion }}</p>
+            <p class="text-right"> <span class="font-rojo">${{ propiedad.precio | number }}</span></p>
+            <!-- <div class="card-footer text-center">
+                {{ propiedad._id }}
+                <button  (click)="modal(propiedad._id)"
+                         type="button" 
+                         class="btn btn-verde2" 
+                         data-toggle="modal" 
+                         data-target="#exampleModal">
+                    Ver más
+                </button>
+            </div> -->
           </div>
         </div>
       </div>
-      <div class="col mb-4">
-        <div class="card">
-          <img src="../assets/img/card.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title principalcolorfont">Título propiedad</h5>
-            <p class="card-text font-italic">Comuna lugar</p>
-            <p class="card-text ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu massa blandit nisi pretium lobortis. Nulla elementum purus ut ligula dapibus, tempor sagittis lorem tempus. Cras faucibus tortor ac eleifend mollis. Aliquam erat volutpat. Nullam risus ante, suscipit ut sapien a, fermentum hendrerit mi.</p>
-            <p class="text-right">$ 999.999</p>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-4">
-        <div class="card">
-          <img src="../assets/img/card.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title principalcolorfont">Título propiedad</h5>
-            <p class="card-text font-italic">Comuna lugar</p>
-            <p class="card-text ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu massa blandit nisi pretium lobortis. Nulla elementum purus ut ligula dapibus, tempor sagittis lorem tempus. Cras faucibus tortor ac eleifend mollis. Aliquam erat volutpat. Nullam risus ante, suscipit ut sapien a, fermentum hendrerit mi.</p>
-            <p class="text-right">$ 999.999</p>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-4">
-        <div class="card">
-          <img src="../assets/img/card.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title principalcolorfont">Título propiedad</h5>
-            <p class="card-text font-italic">Comuna lugar</p>
-            <p class="card-text ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu massa blandit nisi pretium lobortis. Nulla elementum purus ut ligula dapibus, tempor sagittis lorem tempus. Cras faucibus tortor ac eleifend mollis. Aliquam erat volutpat. Nullam risus ante, suscipit ut sapien a, fermentum hendrerit mi.</p>
-            <p class="text-right">$ 999.999</p>
-          </div>
-        </div>
-      </div>
+
     </div>
+
+
     <p class="text-right font-italic">
       <a routerLink="/propiedades" class="btn btn-outline-success">Ir al buscador de propiedades</a>
 
     </p>
 
-  </section>
+  </div>

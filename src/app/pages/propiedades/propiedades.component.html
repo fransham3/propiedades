@@ -1,6 +1,7 @@
 <div class="container-fluid">
     <div class="search-bg p-4 my-4">
         <h4 class="font-blanco mb-4">Búsqueda de propiedades</h4>
+
         
         
         <form>
@@ -100,10 +101,10 @@
       <div class="col mb-4" *ngFor="let propiedad of propiedades" >
         <div class="card">
         
-          <div *ngFor="let imagen of imagenes">
-            <img src={{imagen.imageURL}} class="card-img-top">
+        
+            <img src={{propiedad.img}} class="card-img-top">
 
-          </div>  
+       
 
           <div class="card-body">
             <h5 class="card-title principalcolorfont"><span class="font-verde2">{{ propiedad.titulo }}</span></h5>
@@ -184,39 +185,37 @@
                             <div class="form-bg">
                                 <p class="font-weight-bolder">¿Te interesa esta propiedad? Contáctanos</p>
     
-                            <form action="mailto: fran.agallardo04@gmail.com"
-                            method="post" name="form1">
+                            <form [formGroup]="sendEmailForm"
+                                  (submit)="sendEmail(propsModal._id, propsModal.titulo)"> 
                                 <div class="form-row">
                                     <div class="form-group col-xl-6">
                                         <label for="inputEmail4">Nombre</label>
-                                        <input type="text" class="form-control form-control-sm">
+                                        <input type="text" class="form-control form-control-sm" [(ngModel)]="nombre" formControlName="nombre">
                                     </div>
                                     <div class="form-group col-xl-6">
                                         <label for="inputEmail4">Correo electrónico</label>
-                                        <input type="email" class="form-control form-control-sm">
+                                        <input type="email" class="form-control form-control-sm" [(ngModel)]="email" formControlName="email">
                                     </div>
                                     <div class="form-group col-xl-6">
                                       <label for="inputEmail4">Teléfono</label>
-                                      <input type="text" class="form-control form-control-sm">
+                                      <input type="text" class="form-control form-control-sm" [(ngModel)]="telefono" formControlName="telefono">
                                   </div>
                                     <div class="form-group col-xl-6">
                                         <label for="inputPassword4">¿Qué información deseas?</label>
-                                        <select id="inputState" class="form-control form-control-sm">
+                                        <select id="inputState" class="form-control form-control-sm" [(ngModel)]="tipoConsulta" formControlName="tipoConsulta">
                                             <option selected>Otro</option>
                                             <option>Deseo coordinar una visita</option>
                                             <option>Deseo saber la ubicación exacta</option>
-                                            <option>etc</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-xl-9">
                                         <label for="inputState">Comentario</label>
-                                        <textarea class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="2"></textarea>
+                                        <textarea class="form-control form-control-sm" rows="2" [(ngModel)]="comentario" formControlName="comentario"></textarea>
                                     </div>
                                     <div class="form-group col-xl-3 text-center"> <br> <br>
-                                      <a href="mailto:fran.agallardo04@gmail.com">Send an Email </a>
-                                        <button type="submit" class="btn btn-verde2">Enviar <i class="far fa-paper-plane"></i></button>
+                                      <button type="submit" class="btn btn-verde2">Enviar <i class="far fa-paper-plane"></i></button>
                                     </div>
                                 </div>                       
                             </form>

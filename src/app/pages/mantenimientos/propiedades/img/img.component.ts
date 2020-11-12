@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Img } from 'src/app/models/img.model';
 import { ImagenService } from 'src/app/services/imagen.service';
+import { PropiedadService } from 'src/app/services/propiedad.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,16 +16,17 @@ export class ImgComponent implements OnInit {
   public subirImgForm: FormGroup;
   public imagenSubir: File;
   public fotos: Img[] = [];
-  public img: Img;
+  // public img: string;
   public _id: string;
   public titulo: string;
-  public portada: string;
 
 
 
-  constructor(private imagenService: ImagenService) { }
+  constructor(private imagenService: ImagenService,
+              private propiedadService: PropiedadService) { }
 
   ngOnInit(): void {
+
 
     this.subirImgForm = new FormGroup({
       image: new FormControl()
@@ -54,6 +56,19 @@ export class ImgComponent implements OnInit {
       this.imagenes = resp.fotos;
       
     });
+  }
+
+  portada(propiedad_id, img: string) {
+    console.log(img);
+    console.log(propiedad_id);
+    
+    
+    
+    this.propiedadService.actualizarImg(propiedad_id, img).
+      subscribe(resp => {
+        console.log(resp);
+        
+      })
   }
 
   // cargarImagenesById(id: string) {

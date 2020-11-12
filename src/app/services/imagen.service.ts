@@ -19,13 +19,13 @@ export class ImagenService {
   constructor(private http: HttpClient) { }
   
   obtenerID(idProp) {
-    console.log(idProp);
+    console.log("ID PROPIEDAD: ", idProp);
     this.idProp = idProp;
     
   }
 
   obtenerTitulo(tituloProp) {
-    console.log(tituloProp);
+    // console.log(tituloProp);
     this.tituloProp = tituloProp;
     
   }
@@ -43,7 +43,7 @@ export class ImagenService {
 
     const url = `${base_url}/upload/ver/${this.idProp}`;
     return this.http.get<cargarImagenes>(url);
-    console.log(url);
+    // console.log(url);
     
   
   }

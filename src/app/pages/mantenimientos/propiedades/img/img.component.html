@@ -31,25 +31,46 @@
                 <table class="table col-10 mx-auto">
                     <tbody>
                         <tr *ngFor="let imagen of imagenes" class="text-center">
+                          <!-- <td  class="align-middle">
+                            
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">Portada</label>
+                          </td> -->
                         <td><img    src={{imagen.imageURL}} 
                                     class="img-thumbnail align-middle pointer" 
                                     style="width: 100px;"
                                     data-toggle="modal" 
                                     data-target="#exampleModal"
-                                    > 
+                                    >
+                                    <!-- {{ imagen._id }} -->
+
                         </td>
                         <td class="align-middle">
-                            {{ imagen._id }}
+                            
+
+                            <a  class="col-6 text-center"
+                                style="cursor: pointer;" 
+                                (click)="portada(imagen.propiedad_id, imagen.imageURL)">
+                                <i class="fas fa-check"></i>
+                                <span class="uppercase" style="font-size: 10px;">Seleccionar como portada</span>
+                            </a>
 
                             <a  class="col-6 text-center"
                                 style="cursor: pointer;" 
                                 (click)="elImg(imagen._id)">
-                            <i class="far fa-trash-alt font-rojo"></i>
+                              <i class="far fa-trash-alt font-rojo"></i>
                             </a>
                         </td>
                         </tr>
                     </tbody>
                 </table>
+
+                <!-- <button type="submit" 
+                        class="btn btn-verde2 mt-3 col-sm-3 pointer mx-auto" 
+                        >
+                    Guardar cambios (portada)
+                </button>  -->
+
             </div>
           
          

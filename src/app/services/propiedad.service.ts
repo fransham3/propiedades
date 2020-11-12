@@ -1,9 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { CargarModal, CargarPropiedad, CrearPropiedad } from '../interfaces/cargar-propiedades';
+import { actualizarImg, CargarModal, CargarPropiedad, cPropiedad } from '../interfaces/cargar-propiedades';
 import { Propiedad } from '../models/propiedad.model';
 import { Usuario } from '../pages/models/usuario.model';
 
@@ -41,7 +42,7 @@ export class PropiedadService {
 
   crearPropiedad(propiedad: Propiedad) {
     const url = `${base_url}/propiedades`;
-    return this.http.post<CrearPropiedad>(url, propiedad, this.headers);
+    return this.http.post<cPropiedad>(url, propiedad, this.headers);
   }
 
 
@@ -50,8 +51,14 @@ export class PropiedadService {
 
     const url = `${base_url}/propiedades?page=${page}`;
     return this.http.get<CargarPropiedad>(url);
+ 
+  }
 
-      
+  cargarRecientes() {
+
+    const url = `${base_url}/propiedades/recientes`;
+    return this.http.get<cPropiedad>(url);
+ 
   }
 
 
@@ -71,6 +78,20 @@ export class PropiedadService {
     return this.http.put(`${base_url}/propiedades/${propID}`, data, this.headers);
   }
 
+  
+  actualizarImg(propiedad_id, img): Observable<any> {
+    const body = new HttpParams()
+      .set('img', img)
+
+    return this.http.put(`${base_url}/propiedades/img/${propiedad_id}`,
+      body.toString(),
+      {
+        headers: new HttpHeaders()
+          .set('Content-Type', 'application/x-www-form-urlencoded')
+      }
+    );
+}
+
 
   
   eliminarPropiedades(propiedad: Propiedad) {
@@ -78,6 +99,27 @@ export class PropiedadService {
     const url = `${base_url}/propiedades/${propiedad._id}`;
     return this.http.delete(url, this.headers);
     
+  }
+
+  sendEmail( data: 
+    { nombre: string,
+      email: string,
+      telefono: number,
+      tipoConsulta: string,
+      comentario: string,
+      nombrePropiedad: string,
+      linkPropiedad: string
+    }, propTITULO, linkPropiedades) {
+    
+          data = {
+            ...data,
+            nombrePropiedad: propTITULO,
+            linkPropiedad: linkPropiedades
+          };
+      
+          
+          return this.http.post(`${base_url}/contacto/contacto-propiedad`, data, this.headers);
+
   }
  
 
